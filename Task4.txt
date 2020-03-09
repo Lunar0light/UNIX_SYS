@@ -1,0 +1,23 @@
+﻿1)Содержимое файла:
+'Alexandr Evgenevich Tatarintsev
+
+alexandr tatarintsev'
+
+sed '/^$/d' '/home/alexandr/Рабочий стол/new_fi.txt' | tr [a-z] [A-Z]
+
+результат:
+'ALEXANDR EVGENEVICH TATARINTSEV 
+ALEXANDR TATARINTSEV'
+
+Только для вывода информации, изменений в самом файле нет
+___________________________________________________________
+2) mkdir -p 201{0..7}/{01..12}
+ 
+touch 201{0..7}/{01..12}/file_{001..003}.txt
+bash for i in `ls |grep txt`; do echo "$i">$i; done; for j in 201{0..7}; do for k in {01..12}; do `mv $j$k* $j/$k`; done; done
+___________________________________________________________
+3) * 1 * * * du -sm /home/* > /var/log/si_us_dat.log
+ 
+du - встроенная функция подсчёта занятого пространства
+-s показывает только итог,
+-н показывает в удобном для чтения формате.
