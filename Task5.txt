@@ -1,4 +1,4 @@
-ip a
+п»їip a
  
 -------------------------------------
 2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
@@ -35,7 +35,7 @@ ls
 if-down.d if-post-down.d if-pre-up.d if-up.d
 --------------------------------------------
 
-"файла interfaces не было"
+"С„Р°Р№Р»Р° interfaces РЅРµ Р±С‹Р»Рѕ"
 
 > interfaces 
  
@@ -51,9 +51,9 @@ gateway 192.168.0.2
 :wq!
 systemctl restart networking
 _____________________________________
-2) iptables -A INPUT -p tcp —dport 80 -j ACCEPT
-iptables -A INPUT -p tcp —dport 443 -j ACCEPT
-iptables -A INPUT -p tcp —dport 8080 -j DNAT —to-destination 192.168.0.145:80
+2) iptables -A INPUT -p tcp вЂ”dport 80 -j ACCEPT
+iptables -A INPUT -p tcp вЂ”dport 443 -j ACCEPT
+iptables -A INPUT -p tcp вЂ”dport 8080 -j DNAT вЂ”to-destination 192.168.0.145:80
 
-направляем на свой же айпи, но на другой порт.
+РЅР°РїСЂР°РІР»СЏРµРј РЅР° СЃРІРѕР№ Р¶Рµ Р°Р№РїРё, РЅРѕ РЅР° РґСЂСѓРіРѕР№ РїРѕСЂС‚.
 
