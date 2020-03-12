@@ -1,0 +1,59 @@
+ip a
+ 
+-------------------------------------
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+link/ether 08:00:27:dc:73:c7 brd ff:ff:ff:ff:ff:ff
+inet 192.168.1.137/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3
+valid_lft 86078sec preferred_lft 86078sec
+inet6 fe80::b818:172b:b210:64f9/64 scope link noprefixroute 
+valid_lft forever preferred_lft forever
+--------------------------------------
+
+ip addr add 192.168.0.145/24 dev enp0s3
+
+--------------------------------------
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+link/ether 08:00:27:dc:73:c7 brd ff:ff:ff:ff:ff:ff
+inet 192.168.1.137/24 brd 192.168.1.255 scope global dynamic noprefixroute enp0s3
+valid_lft 85940sec preferred_lft 85940sec
+inet 192.168.0.145/24 scope global enp0s3
+--------------------------------------
+ 
+ip route add default via 192.168.0.9
+ip route
+
+------------------------------------
+default via 192.168.0.9 dev enp0s3
+default via 192.168.1.1 dev enp0s3 proto dhcp metric 100
+-----------------------------------
+
+cd /etc/network
+ 
+ls
+
+--------------------------------------------
+if-down.d if-post-down.d if-pre-up.d if-up.d
+--------------------------------------------
+
+"файла interfaces не было"
+
+> interfaces 
+ 
+vi interfaces 
+
+auto lo
+iface lo inet loopback
+auto enp0s5
+iface enp0s5 inet static
+address 192.168.0.147
+netmask 255.255.255.0
+gateway 192.168.0.2
+:wq!
+systemctl restart networking
+_____________________________________
+2) iptables -A INPUT -p tcp Чdport 80 -j ACCEPT
+iptables -A INPUT -p tcp Чdport 443 -j ACCEPT
+iptables -A INPUT -p tcp Чdport 8080 -j DNAT Чto-destination 192.168.0.145:80
+
+направл€ем на свой же айпи, но на другой порт.
+
